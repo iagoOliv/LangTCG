@@ -1,0 +1,24 @@
+.button {
+    padding: 1.6rem 3.2rem;
+    border: none;
+    background: var(--wp-blue-600);
+    border-radius: .4rem;
+    color: var(--wp-foreground-100);
+    position: relative;
+    cursor: pointer;
+    transition: all ease-in-out 100ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+
+    & svg,
+    & img {
+        height: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}

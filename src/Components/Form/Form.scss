@@ -1,0 +1,38 @@
+.form {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 1.6rem 3.2rem;
+    background: var(--wp-foreground-800);
+    color: var(--wp-foreground-200);
+    overflow-y: auto;
+    z-index: 99;
+    box-shadow: 0 0 1.6rem var(--wp-foreground-900);
+    box-sizing: border-box;
+
+    &__input {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+
+        &--text {
+            font-weight: 700;
+        }
+    }
+}
+
+.input {
+    padding: 1.6rem 3.2rem;
+    border: none;
+    background: var(--wp-foreground-700);
+    border-radius: .4rem;
+    color: var(--wp-foreground-100);
+
+    &::placeholder {
+        color: var(--wp-foreground-500);
+    }
+}
