@@ -81,9 +81,4 @@ a {
 html, body {
   scrollbar-color: var(--wp-foreground-300);
   scrollbar-track-color: var(--wp-foreground-500);
-  scrollbar-width: .8rem;
-  
-  &::-webkit-scrollbar {
-    width: .8rem;
-  }
 }
