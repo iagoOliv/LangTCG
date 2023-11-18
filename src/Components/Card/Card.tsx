@@ -1,48 +1,63 @@
 import './Card.scss'
+import Palette from './Palette.ts'
 
 interface CardProps {
-    language?: string,
-    color?: string,
-    number?: string,
-    description?: string,
-    speed?: string,
-    popularity?: string,
-    source?: string,
+  data: any
 }
 
-const Card = ({language, color, number, description, speed, popularity, source}:CardProps) => {
-    return (
-        <>
-            <section className="card__root">
-                <div className={"card" /*+ " " + color + "__background--900"*/}>
-                        <div className="card__inner">
-                            <div className="card__absolute">
-                                <span className="card__number">{number}</span>
-                                <span>{color}</span>
-                            </div>
-                            <div className="card__logo">
-                                <img src={source} alt={language + "'s Logo"} />
-                            </div>
-                            <section className="card__content">
-                                <div className="card__content--header">
-                                    <span className="card__language">{language}</span>
-                                    <span className="card__description">{description}</span>
-                                </div>
-                                <div className="card__content--attributes">
-                                    <div className="card__attribute">
-                                        {speed}
-                                    </div>
-                                    <div className="card__attribute">
-                                        {popularity}
-                                    </div>
-                                </div>
-                                <div className="card__content--info"></div>
-                            </section>
-                        </div>
-                    </div>
-            </section>
-        </>
-    )
+const Card = ({ data }: CardProps) => {
+  let chosenColor;
+
+  chosenColor = Palette.filter((element: any) => element.color == data.color);
+  chosenColor[0] === undefined ? chosenColor = Palette.filter((element: any) => element.color == "blue") : "";
+
+  return (
+    <>
+      <section className="card__root" id="card">
+        <div className="card__root--sub" style={{ background: chosenColor[0].foreground }}>
+          <div className="card" style={{ background: chosenColor[0].main }}>
+            <div className="card__inner" style={{ background: chosenColor[0].foreground }}>
+              
+              {/*  1 - Card ID  */}
+              <div className="card__absolute">
+                <span className="card__number" style={{ color: chosenColor[0].main }}>{data.number}</span>
+              </div>
+
+              {/*  2 - Card Logo  */}
+              <div className="card__logo" style={{ background: `radial-gradient(at right top, ${chosenColor[0].mainSub}, transparent)` }}>
+                <img src={data.source} alt={data.language + "'s Logo"} />
+              </div>
+
+              {/*  3 - Card Content / Info  */}
+              <section className="card__content" style={{ background: chosenColor[0].foregroundSub }}>
+                <div className="card__content--header">
+                  <span className="card__language" style={{ color: chosenColor[0].title }}>{data.name}</span>
+                  <span className="card__description">{data.description}</span>
+                </div>
+
+                <div className="card__content--attributes">
+                  <div className="card__attribute" style={{ background: `linear-gradient(${chosenColor[0].main}77, ${chosenColor[0].mainSub})` }}>
+                    <span className="card__attribute--category">Speed</span>
+                    <span className="card__attribute--value" style={{ color: chosenColor[0].title }}>{data.speed}</span>
+                  </div>
+                  <div className="card__attribute" style={{ background: `linear-gradient(${chosenColor[0].main}77, ${chosenColor[0].mainSub})` }}>
+                    <span className="card__attribute--category">Popularity</span>
+                    <span className="card__attribute--value" style={{ color: chosenColor[0].title }}>{data.popularity}</span>
+                  </div>
+                </div>
+                <div className="card__content--metadatas">
+                  <span className="card__metadata">ID 18df1g19f1</span>
+                  <span className="card__metadata">{Date.now()}</span>
+                </div>
+
+              </section>
+
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }
 
 export default Card;

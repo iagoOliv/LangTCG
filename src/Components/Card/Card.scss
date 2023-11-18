@@ -6,21 +6,31 @@ $cardHeight: 50rem;
     left: 50%;
     transform: translate(-50%, -50%);
     height: $cardHeight;
-    aspect-ratio: 3/4;
+    aspect-ratio: 2/3;
     border-radius: 1.6rem;
-    background: var(--wp-blue-600);
+    background: white;
     
-
     &__root {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: $cardHeight + 1.6rem;
-        aspect-ratio: 3/4;
+        height: $cardHeight + 3.8rem;
+        aspect-ratio: 2/3;
         border-radius: 2.2rem;
         background: white;
         box-shadow: 0 .2rem 1.6rem rgba(0, 0, 0, 0.3);
+
+        &--sub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: $cardHeight + 2.4rem;
+            aspect-ratio: 2/3;
+            border-radius: 1.6rem;
+            background: var(--wp-slate-900);
+        }
 
         &::before {
             user-select: none;
@@ -49,12 +59,12 @@ $cardHeight: 50rem;
             z-index: 11;
             border-radius: 2.2rem;
             background: linear-gradient(
-                            rgba(134,  25, 143, 0.1)   0%, 
-                            rgba(76 ,  29, 149, 0.1)  20%,
-                            rgba(30 ,  58, 138, 0.1)  40%, 
-                            rgba(7  ,  89, 133, 0.1)  60%, 
-                            rgba(6  ,  95,  70, 0.1)  80%, 
-                            rgba(133,  77,  14, 0.1) 100%
+                            rgba(134,  25, 143, 0.20)   0%, 
+                            rgba(76 ,  29, 149, 0.20)  20%,
+                            rgba(30 ,  58, 138, 0.20)  40%, 
+                            rgba(7  ,  89, 133, 0.20)  60%, 
+                            rgba(6  ,  95,  70, 0.20)  80%, 
+                            rgba(133,  77,  14, 0.20) 100%
                             ),
                         url('../../assets/textures/noise.png');
             background-repeat: repeat;
@@ -63,7 +73,7 @@ $cardHeight: 50rem;
 
     &__inner {
         height: $cardHeight - 1.6rem;
-        aspect-ratio: 3/4;
+        aspect-ratio: 2/3;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -76,24 +86,94 @@ $cardHeight: 50rem;
         justify-content: space-between;
     }
 
-    &__number {
+    &__absolute {
         font-weight: 700;
         position: absolute;
-        top: .8rem;
-        left: .8rem;
-        font-size: 3.2rem;
+        top: 1.2rem;
+        left: 1.2rem;
+        font-size: 3.8rem;
     }
 
     &__logo {
-        height: 16rem;
+        height: 50%;
         width: 100%;
+        padding: 3.2rem;
+        box-sizing: border-box;
         display: flex;
         justify-content: center;
         align-items: center;
+        background: radial-gradient(at right top, #113748, #11374800);
+        border-radius: 1.2rem 1.2rem 0 0;
 
         & img {
             height: 100%;
             aspect-ratio: 1/1;
+            object-fit: contain;
         }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: var(--wp-slate-800);
+        height: 50%;
+        padding: 1.6rem 0;
+        border-radius: 0 0 1.2rem 1.2rem;
+
+        &--header {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+            padding: 0 1.6rem;
+        }
+
+        &--attributes {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        &--metadatas {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 1.6rem;
+            padding-right: 1.6rem;
+            color: var(--wp-slate-500);
+            font-family: 'Cabin Condensed', sans-serif;
+            font-weight: 600;
+        }
+    }
+
+    &__attribute {
+        width: 100%;
+        height: 3.8rem;
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        background: linear-gradient(#0C4A6E, #103042);
+        padding-left: 1.6rem;
+        font-family: 'Cabin', sans-serif;
+        font-size: 1.8rem;
+
+        &--category {
+            font-weight: 600;
+        }
+
+        &--value {
+            color: #0EA5E9;
+            font-weight: 700;
+        }
+    }
+
+    &__language {
+        font-weight: 700;
+        font-size: 3.2rem;
+        color: #0EA5E9;
+    }
+
+    &__description {
+        max-height: 6rem;
+        overflow-y: hidden;
     }
 }

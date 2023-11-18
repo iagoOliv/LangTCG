@@ -21,12 +21,12 @@ npm run build
 
 ## Features a serem implementadas:
 
-|Feature          |       Estado|
-|-----------------|-------------|
-| Paletas Fixas   | A ser feito |
-| Geração         | A ser feito |
-| Imprimir        | A ser feito |
-| Salvar como PNG | A ser feito |
+|Feature          | Estado                   |
+|-----------------|--------------------------|
+| Geração         | Concluído                |
+| Paletas Fixas   | Concluído                |
+| Salvar como PNG | Concluído (Parcialmente) |
+| Imprimir        | A ser feito              |
 
 ## Créditos
 Texturas geradas por [Noise Texture Generator](https://www.noisetexturegenerator.com/) por [Andrew Kordampalos](https://www.andrewckor.com/).
